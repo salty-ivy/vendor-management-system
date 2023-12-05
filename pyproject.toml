@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "vendor-management-system"
+version = "0.1.0"
+description = ""
+authors = ["Aman Pandey <aman2001mi@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.0"
+djangorestframework = "^3.14.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
