@@ -9,3 +9,6 @@ db:
 app:
 	python3 src/manage.py startapp $(NAME)
 	mv $(NAME) src
+
+superuser:
+	python3 src/manage.py createsuperuser
