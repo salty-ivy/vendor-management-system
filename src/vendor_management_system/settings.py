@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # CUSTOM APPS
     "vendor",
     "order",
+    "history",
 ]
 
 MIDDLEWARE = [
