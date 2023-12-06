@@ -7,7 +7,7 @@ from history.models import HistoricalPerformance
 
 @admin.register(HistoricalPerformance)
 class HistoficalPerformanceAdmin(admin.ModelAdmin):
-    search_fields = "vendor"
+    search_fields = ("vendor",)
     list_display = (
         "on_time_delivery_rate",
         "quality_rating_avg",

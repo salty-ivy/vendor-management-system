@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     "vendor",
     "order",
     "history",
+    # THIRD PARTY
+    "rest_framework",
+    "rest_framework_simplejwt",
 ]
 
 MIDDLEWARE = [
