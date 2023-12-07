@@ -10,6 +10,10 @@ from .models import PurchaseOrder
 
 
 class PurchaseOrderCreateUpdateSerializer(serializers.Serializer):
+    """
+    Serializer for PurchaseOrder model, dealing with creation and updation
+    """
+
     id = serializers.UUIDField(read_only=True)
     po_number = serializers.CharField(max_length=10)
     vendor = serializers.CharField(
@@ -60,6 +64,10 @@ class PurchaseOrderCreateUpdateSerializer(serializers.Serializer):
 
 
 class PurchaseOrderRetrieveListSerializer(serializers.Serializer):
+    """
+    Serializer dealing with retrieval and indexed listing of PurchaseOrder instances
+    """
+
     id = serializers.UUIDField(read_only=True)
     po_number = serializers.CharField(max_length=10)
     vendor = VendorSerializer(
