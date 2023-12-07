@@ -17,9 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from order.urls import order_router
+from vendor.urls import vendor_router
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     # API URLS
-    path("api/vendors/", include("vendor.urls", namespace="vendor")),
-    path("api/purchase_orders/", include("order.urls", namespace="order")),
+    path("api/vendors/", include((vendor_router.urls, "vendor"), namespace="vendor")),
+    path(
+        "api/purchase_orders/", include((order_router.urls, "order"), namespace="order")
+    ),
 ]

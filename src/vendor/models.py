@@ -44,7 +44,10 @@ class Vendor(BaseMetrics):
     )
     address = models.TextField(max_length=200, help_text="Address of the vendor.")
     vendor_code = models.CharField(
-        max_length=10, unique=True, help_text="Unique code assigned to the vendor."
+        max_length=10,
+        unique=True,
+        db_index=True,
+        help_text="Unique code assigned to the vendor.",
     )
 
     def __str__(self):

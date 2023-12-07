@@ -4,7 +4,5 @@ from vendor.views import VendorViewSet
 
 app_name = "vendor"
 
-router = DefaultRouter()
-router.register(r"", VendorViewSet, basename="vendor")
-
-urlpatterns = router.urls
+vendor_router = DefaultRouter()
+vendor_router.register(r"", VendorViewSet, basename="vendor")

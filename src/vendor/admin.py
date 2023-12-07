@@ -10,6 +10,7 @@ class VendorAdmin(admin.ModelAdmin):
     search_fields = ("name", "address", "vendor_code")
     list_display = (
         "name",
+        "id",
         "contact_details",
         "address",
         "vendor_code",

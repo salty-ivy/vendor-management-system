@@ -22,7 +22,9 @@ class PurchaseOrder(models.Model):
         unique=True,
         help_text="Unique identifier for the purchase_order.",
     )
-    po_number = models.CharField(max_length=10, help_text="Purchase order number.")
+    po_number = models.CharField(
+        max_length=10, unique=True, db_index=True, help_text="Purchase order number."
+    )
     vendor = models.ForeignKey(
         Vendor,
         on_delete=models.CASCADE,
