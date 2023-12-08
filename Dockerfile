@@ -8,10 +8,24 @@ ENV PYTHONFAULTHANDLER=1 \
     PIP_NO_CACHE_DIR=1 \
     POETRY_VERSION=1.7.1
 
-WORKDIR /app
 
-COPY pyproject.toml poetry.lock /app/
+# install poetry to manage python dependencies
+RUN curl -sSL https://install.python-poetry.org | python3 -
 
-RUN pip install 'poetry==1.7.1'
+ENV PATH="${PATH}:/root/.local/bin"
 
-RUN poetry config virtualenvs.create false
+RUN poetry config virtualenvs.create true
+# install python dependencies
+COPY ./pyproject.toml .
+
+COPY ./poetry.lock .
+
+RUN /root/.local/bin/poetry install --no-interaction --no-ansi
+
+# copy project
+COPY . .
+
+# run at port 8000
+EXPOSE 8000
+
+CMD ["poetry", "run", "python", "src/manage.py", "runserver"]

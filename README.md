@@ -26,6 +26,8 @@ password: admin
 
 ### Virtual Environment
 
+### Virtual Environment setup
+
 It is recommended to use a virtual environment to run this project. Follow the steps below:
 
 1. **Create a virtual environment:**
@@ -53,6 +55,11 @@ It is recommended to use a virtual environment to run this project. Follow the s
     ```
     deactivate
     ```
+### ENV file setup
+
+`env.example` showcase an example env file
+
+You can create a file named `env` local to your system which can be deteceted by the project to configure your custom database like postgres
 
 
 ### Installing
@@ -64,6 +71,10 @@ It is recommended to use a virtual environment to run this project. Follow the s
     ```
 
 2. Install the required packages
+
+    ```
+    pip install poetry
+    ```
 
     ```
     poetry install
@@ -99,7 +110,13 @@ It is recommended to use a virtual environment to run this project. Follow the s
 
     You can run these commands by executing make followed by the target name in your terminal. For example, to start the development server, you can run `make runserver`.
 
-4. Open the browser and go to http://localhost:8000
+4. Run with Docker
+
+```
+docker compose built && docker compose up
+```
+
+5. Open the browser and go to http://localhost:8000
 
 ## Built With
 
@@ -112,46 +129,31 @@ It is recommended to use a virtual environment to run this project. Follow the s
 
 * GET /api/vendors/ - List all vendors
 * POST /api/vendors/ - Create a new vendor
-* GET /api/vendors/{id}/ - Retrieve a vendor
-* PUT /api/vendors/{id}/ - Update a vendor
-* DELETE /api/vendors/{id}/ - Delete a vendor
+* GET /api/vendors/{pk}/ - Retrieve a vendor
+* PUT /api/vendors/{pk}/ - Update a vendor
+* DELETE /api/vendors/{pk}/ - Delete a vendor
+* GET /api/vendors/{pk}/performance/ - Rrturns vendors performance records and historical performance of each order issues to that vendor
 
 ### Purchase Order
 
 * GET /api/purchase_orders/ - List all purchase orders
 * POST /api/purchase_orders/ - Create a new purchase order
-* GET /api/purchase_orders/{id}/ - Retrieve a purchase order
-* PUT /api/purchase_orders/{id}/ - Update a purchase order
-* DELETE /api/purchase_orders/{id}/ - Delete a purchase order
-
-### Vendor Performance
-
-* GET /api/vendor_performance/ - List all vendor performances
-
-
-### Use Swagger UI to test the API
-
-* Go to http://localhost:8000/swagger/
-
-* Click on "Authorize" button on the top right corner
-
-* Enter the following credentials:
-```
-tokenAuth (apiKey) : "Token e9c99278469375ec523d76d38ae2c33cb9d8a3b3"
-```
-and click on "Authorize" button
-
-* Now you can test the API. Click on any endpoint and then click on "Try it out" button. Enter the required parameters and click on "Execute" button.
-
-## Screenshots
-
-![swagger api docs]()
-![swagger authorization]()
-![purchase order api]()
+* GET /api/purchase_orders/{pk}/ - Retrieve a purchase order
+* PUT /api/purchase_orders/{pk}/ - Update a purchase order
+* DELETE /api/purchase_orders/{pk}/ - Delete a purchase order
+* POST /api/purchase_orders/{pk}/acknowledge/ -  Update acknowledgment_date and trigger the recalculation of average_response_time.
 
 ## Test Suite
 
 To run the test suite, run the following command:
 ```
-python manage.py test
+make tests
+```
+
+## Other utilities
+
+To lookup a list of available URLs like routes in rails
+
+```
+make urls
 ```
