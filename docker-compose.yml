@@ -2,33 +2,29 @@ version: '3.8'
 
 services:
   web:
-    image: "django-demo:dev"
+    image: "django:latest"
     build:
       target: development_build
       context: .
       cache_from:
-        - "django-demo:dev"
-        - "django-demo:latest"
-        - "*"
-      args:
-        DJANGO_ENV: development
-    command: python -Wd manage.py runserver 0.0.0.0:8000
+        - "django:latest"
+    command: python src/manage.py runserver 0.0.0.0:8000
     ports:
       - 8000:8000
     env_file:
-      - ./env.example
+      - env
     depends_on:
       - db
 
   db:
     container_name: my-sqlite-container
-    image: sqlite:latest
+    image: alpine:latest
     volumes:
       - sqlite-data:/mydatabase
     ports:
       - "5432:5432"
     env_file:
-      - ./.env.dev
+      - env
 
 volumes:
   sqlite-data:

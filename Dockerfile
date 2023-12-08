@@ -1,31 +1,19 @@
-FROM python:3.11
+FROM python:3.11 as development_build
 
-ENV PYTHONFAULTHANDLER=1 \
-    PYTHONHASHSEED=random \
-    PYTHONUNBUFFERED=1 \
-    PIP_DEFAULT_TIMEOUT=100 \
-    PIP_DISABLE_PIP_VERSION_CHECK=1 \
-    PIP_NO_CACHE_DIR=1 \
-    POETRY_VERSION=1.7.1
+ENV PYTHONDONTWRITEBYTECODE 1
 
+ENV PYTHONUNBUFFERED 1
 
-# install poetry to manage python dependencies
-RUN curl -sSL https://install.python-poetry.org | python3 -
+RUN mkdir /code
 
-ENV PATH="${PATH}:/root/.local/bin"
+WORKDIR /code
 
-RUN poetry config virtualenvs.create true
-# install python dependencies
-COPY ./pyproject.toml .
+RUN pip install --upgrade pip
 
-COPY ./poetry.lock .
+COPY requirements.txt /code/
 
-RUN /root/.local/bin/poetry install --no-interaction --no-ansi
+RUN pip install -r requirements.txt
 
-# copy project
-COPY . .
+COPY . /code/
 
-# run at port 8000
 EXPOSE 8000
-
-CMD ["poetry", "run", "python", "src/manage.py", "runserver"]

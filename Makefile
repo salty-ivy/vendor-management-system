@@ -15,3 +15,7 @@ superuser:
 
 urls:
 	python3 src/manage.py show_urls
+
+
+tests:
+	python3 src/manage.py test
