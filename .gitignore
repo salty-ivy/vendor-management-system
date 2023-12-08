@@ -36,6 +36,7 @@ media
 ENV/
 env.bak/
 env/
+env
 venv
 venv.bak/
 venv/
