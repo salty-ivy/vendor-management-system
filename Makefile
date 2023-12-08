@@ -12,3 +12,6 @@ app:
 
 superuser:
 	python3 src/manage.py createsuperuser
+
+urls:
+	python3 src/manage.py show_urls
