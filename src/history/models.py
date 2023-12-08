@@ -24,7 +24,8 @@ class HistoricalPerformance(BaseMetrics):
         help_text="Vendor associated with the historical performance.",
     )
     date = models.DateTimeField(
-        auto_now=True, help_text="Date when the historical performance was recorded."
+        auto_now_add=True,
+        help_text="Date when the historical performance was recorded.",
     )
 
     def __str__(self):

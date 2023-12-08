@@ -9,7 +9,7 @@ class BaseMetrics(models.Model):
     """
 
     on_time_delivery_rate = models.FloatField(
-        default=0, help_text="Percentage of on-time deliveries."
+        default=0, help_text="rate of on-time deliveries."
     )
     quality_rating_avg = models.FloatField(
         default=0, help_text="Average quality rating."

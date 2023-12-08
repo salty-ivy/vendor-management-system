@@ -1,4 +1,6 @@
+from django.utils.timezone import now
 from rest_framework import status
+from rest_framework.decorators import action
 from rest_framework.response import Response
 
 from order.models import PurchaseOrder
@@ -42,3 +44,24 @@ class PurchaseOrderViewset(BaseAutoViewset):
             instance._prefetched_objects_cache = {}
 
         return Response(serializer.data)
+
+    @action(detail=True, methods=["post"])
+    def acknowledge(self, request, pk=None):
+        po = PurchaseOrder.objects.get(id=pk)
+        if po.acknowledgment_date is None:
+            po.acknowledgment_date = now()
+            po.save()
+
+            return Response(
+                {
+                    "detail": f"Purchase order {po.po_number} has been acknowledged successfully",
+                },
+                status=status.HTTP_200_OK,
+            )
+
+        return Response(
+            {
+                "detail": f"Purchase order {po.po_number} has already been acknowledged",
+            },
+            status=status.HTTP_406_NOT_ACCEPTABLE,
+        )

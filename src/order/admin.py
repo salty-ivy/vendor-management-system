@@ -9,6 +9,7 @@ from order.models import PurchaseOrder
 class PurchaseOrderAdmin(admin.ModelAdmin):
     search_fields = ("po_number", "status", "vendor")
     list_display = (
+        "id",
         "po_number",
         "vendor",
         "order_date",
