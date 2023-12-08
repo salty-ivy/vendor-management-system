@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from order.urls import order_router
 from vendor.urls import vendor_router
@@ -27,4 +28,7 @@ urlpatterns = [
     path(
         "api/purchase_orders/", include((order_router.urls, "order"), namespace="order")
     ),
+    # TOKEN URLS
+    path("api/token/", TokenObtainPairView.as_view(), name="token-obtain-pair-view"),
+    path("api/token/refresh/", TokenRefreshView.as_view(), name="token-referesh"),
 ]
