@@ -4,7 +4,7 @@ Endpoint: `GET /api/vendors/`
 
 Description: Retrieves a list of all vendors
 
-![List Vendors](../../images/vendor/vendor_list.png)
+![List Vendors](https://github.com/salty-ivy/vendor-management-system/blob/main/src/images/vendor/vendor_create.png)
 
 
 # Create a new vendor
