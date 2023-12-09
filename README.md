@@ -85,27 +85,29 @@ You can create a file named `env` local to your system which can be deteceted by
     The Makefile in this project provides several targets that can be used to perform common tasks. To use the Makefile, open a terminal or command prompt and navigate to the root directory of your project.
 
     - Available Targets
-        - **runserver**: Start the development server.
-
-            ```
-            make runserver
-            ```
         - **db**: Perform database migrations
 
             ```
-            make db
+            make db # makemigrations, migrate
             ```
 
+        - **runserver**: Start the development server.
+
+            ```
+            make runserver # runserver
+            ```
+
+    - Other available commnds
         - **app**: Create a new Django app.
 
             ```
-            make app NAME=<app_name>
+            make app NAME=<app_name> # startapp
             ```
 
         - **superuser**: Create a superuser for the Django admin.
 
             ```
-            make superuser
+            make superuser # createsuperuser
             ```
 
     You can run these commands by executing make followed by the target name in your terminal. For example, to start the development server, you can run `make runserver`.
