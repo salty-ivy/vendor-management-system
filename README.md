@@ -145,15 +145,37 @@ docker compose built && docker compose up
 
 ## Test Suite
 
+Tests are structured in 2 ways
+- unit tests which are under `vendor`, `order` directories testing their specific endpoints
+- `tests` directory on root level is provided directory for any integration test suite
+
 To run the test suite, run the following command:
 ```
 make tests
 ```
 
+To run a specific test you can provide modular path to that project
+
+```
+make test-specific NAME=vendor.tests # runs only vendor app's tests
+```
+
 ## Other utilities
 
-To lookup a list of available URLs like routes in rails
+- To lookup a list of available URLs like routes in rails
 
 ```
 make urls
+```
+
+- To automatically create a superuser
+
+```
+make auto_create_superuser
+```
+
+Above will create a super user with:
+```
+username: admin
+password: admin
 ```

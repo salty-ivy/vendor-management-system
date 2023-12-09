@@ -13,9 +13,15 @@ app:
 superuser:
 	python3 src/manage.py createsuperuser
 
+auto_create_superuser:
+	python3 src/manage.py auto_create_superuser
+
 urls:
 	python3 src/manage.py show_urls
 
 
 tests:
 	python3 src/manage.py test
+
+test-specific:
+	python3 src/manage.py test $(NAME)
