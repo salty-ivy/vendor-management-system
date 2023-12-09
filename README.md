@@ -138,7 +138,7 @@ docker-compose build && docker compose up
 * DELETE /api/vendors/{pk}/ - Delete a vendor
 * GET /api/vendors/{pk}/performance/ - Rrturns vendors performance records and historical performance of each order issues to that vendor
 
-- Details of  [Vendor endpoints here](src/docs/vendor/endpoints.md)
+Details of  [Vendor endpoints here](src/docs/vendor/endpoints.md)
 
 ### Purchase Order
 
