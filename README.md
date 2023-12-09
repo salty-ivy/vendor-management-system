@@ -114,8 +114,10 @@ You can create a file named `env` local to your system which can be deteceted by
 
 4. Run with Docker
 
+docker copose has been setup to use alpine image `sqlite3` databse with consistent volume
+
 ```
-docker compose built && docker compose up
+docker-compose build && docker compose up
 ```
 
 5. Open the browser and go to http://localhost:8000
