@@ -4,7 +4,7 @@ Endpoint: `GET /api/vendors/`
 
 Description: Retrieves a list of all vendors.
 
-![List Vendors](images/vendor/vendor_list.png)
+![List Vendors](src/images/vendor/vendor_list.png)
 
 
 # Create a new vendor
@@ -13,7 +13,7 @@ Endpoint: `POST /api/vendors/`
 
 Description: Creates a new vendor.
 
-![Create Vendor](images/vendor/vendor_create.png)
+![Create Vendor](src/images/vendor/vendor_create.png)
 
 # Update a vendor
 
@@ -21,7 +21,7 @@ Endpoint: `PUT /api/vendors/{pk}/`
 
 Description: Updates details of a specific vendor identified by the primary key.
 
-![Update Vendor](images/vendor/vendor_update.png)
+![Update Vendor](src/images/vendor/vendor_update.png)
 
 
 
@@ -31,7 +31,7 @@ Endpoint: `GET /api/vendors/{pk}/`
 
 Description: Retrieves details of a specific vendor identified by the primary key.
 
-![Retrieve Vendor](images/vendor/vendor_retrieve.png)
+![Retrieve Vendor](src/images/vendor/vendor_retrieve.png)
 
 
 
@@ -41,7 +41,7 @@ Endpoint: `DELETE /api/vendors/{pk}/`
 
 Description: Deletes a specific vendor identified by the primary key.
 
-![Delete Vendor](images/vendor/vendor_delete.png)
+![Delete Vendor](src/images/vendor/vendor_delete.png)
 
 
 # Vendor Performance Records
@@ -50,4 +50,4 @@ Endpoint: `GET /api/vendors/{pk}/performance/`
 
 Description: Returns performance records for a specific vendor.
 
-![Vendor Performance Records](images/vendor/vendor_performance.png)
+![Vendor Performance Records](src/images/vendor/vendor_performance.png)
