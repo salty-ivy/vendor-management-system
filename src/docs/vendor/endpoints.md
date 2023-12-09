@@ -2,9 +2,9 @@
 
 Endpoint: `GET /api/vendors/`
 
-Description: Retrieves a list of all vendors.
+Description: Retrieves a list of all vendors
 
-![List Vendors](src/images/vendor/vendor_list.png)
+![List Vendors](../../images/vendor/vendor_list.png)
 
 
 # Create a new vendor
