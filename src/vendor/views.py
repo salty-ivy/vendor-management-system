@@ -32,18 +32,21 @@ class VendorViewSet(BaseAutoViewset):
             vendor=pk
         ).prefetch_related("vendor")
 
-        # get the vendor from the first element
-        vendor = history_queryset.first().vendor
+        if history_queryset:
+            # get the vendor from the first element
+            vendor = history_queryset.first().vendor
 
-        serializer = self.history_serializer(history_queryset, many=True)
-        headers = self.get_success_headers(serializer.data)
+            serializer = self.history_serializer(history_queryset, many=True)
+            headers = self.get_success_headers(serializer.data)
 
-        content = {
-            "on_time_delivery_rate": vendor.on_time_delivery_rate,
-            "quality_rating_avg": vendor.quality_rating_avg,
-            "average_response_time": vendor.average_response_time,
-            "fulfillment_rate": vendor.fulfillment_rate,
-            "performance_history": serializer.data,
-        }
-
-        return Response(content, status=status.HTTP_201_CREATED, headers=headers)
+            content = {
+                "on_time_delivery_rate": vendor.on_time_delivery_rate,
+                "quality_rating_avg": vendor.quality_rating_avg,
+                "average_response_time": vendor.average_response_time,
+                "fulfillment_rate": vendor.fulfillment_rate,
+                "performance_history": serializer.data,
+            }
+            return Response(content, status=status.HTTP_200_OK, headers=headers)
+        return Response(
+            {"detail": "No performance recorded yet"}, status=status.HTTP_200_OK
+        )
