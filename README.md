@@ -149,6 +149,8 @@ docker-compose build && docker compose up
 * DELETE /api/purchase_orders/{pk}/ - Delete a purchase order
 * POST /api/purchase_orders/{pk}/acknowledge/ -  Update acknowledgment_date and trigger the recalculation of average_response_time.
 
+Details of  [Purchase Order endpoints here](src/docs/order/endpoints.md)
+
 ## Test Suite
 
 Tests are structured in 2 ways
