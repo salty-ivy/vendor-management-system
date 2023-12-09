@@ -129,6 +129,11 @@ docker-compose build && docker compose up
 
 ## API Endpoints
 
+### Login/Token
+
+* POST /api/token/ - Return `access` and `refresh` tokens
+* POST /api/token/refresh/ - Returns a new set of `access` and `refresh` tokens
+
 ### Vendor
 
 * GET /api/vendors/ - List all vendors
