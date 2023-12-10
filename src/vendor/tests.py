@@ -41,9 +41,7 @@ class VendorTests(APITestCase):
         """
         Ensure we can get a historical performance object.
         """
-        url = reverse(
-            "vendor:vendor-performance", args=[self.historical_performance.id]
-        )
+        url = reverse("vendor:vendor-performance", args=[self.vendor.id])
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data["metrics"]["vendor"], self.vendor.id)
+        self.assertEqual(response.data.get("id"), self.vendor.id)

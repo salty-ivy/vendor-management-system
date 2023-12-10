@@ -23,5 +23,5 @@ urls:
 tests:
 	python3 src/manage.py test
 
-test-specific:
+tests-specific:
 	python3 src/manage.py test $(NAME)

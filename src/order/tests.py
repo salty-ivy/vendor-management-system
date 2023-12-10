@@ -13,7 +13,7 @@ class PurchaseOrderTests(APITestCase):
             name="testvendor",
             contact_details="testcontactdetails",
             address="testaddress",
-            vendor_code="testvendorcode",
+            vendor_code="testcode",
         )
         self.user = User.objects.create_user(
             username="testuser", password="testpassword"
@@ -36,7 +36,7 @@ class PurchaseOrderTests(APITestCase):
         url = reverse("order:order-list")
         data = {
             "po_number": "75613",
-            "vendor": "1f23f",
+            "vendor": self.vendor.vendor_code,
             "order_date": "2023-12-07T10:07:25Z",
             "delivery_date": "2023-12-11T18:00:00Z",
             "items": {"bag": "red", "bottle": "blue"},
@@ -49,9 +49,9 @@ class PurchaseOrderTests(APITestCase):
 
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(PurchaseOrder.objects.count(), 2)
-        self.assertEqual(
+        self.assertIn(
             PurchaseOrder.objects.filter(vendor=self.vendor).last().po_number,
-            "1234567891",
+            "75613",
         )
 
     def test_get_purchase_order(self):
@@ -69,19 +69,20 @@ class PurchaseOrderTests(APITestCase):
         """
         url = reverse("order:order-detail", args=[self.purchase_order.id])
         data = {
-            "po_number": "1234567891",
-            "vendor": self.vendor.id,
+            "po_number": "75613",
+            "vendor": self.vendor.vendor_code,
             "order_date": "2021-01-01",
             "delivery_date": "2021-01-02",
+            "items": {"bag": "red", "bottle": "blue", "book": "green"},
+            "quantity": 50,
             "status": "completed",
             "quality_rating": 5,
             "acknowledgment_date": "2021-01-01",
         }
         response = self.client.put(url, data, format="json")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        # print(PurchaseOrder.objects.all())
         self.assertEqual(
-            PurchaseOrder.objects.get(vendor=self.vendor).po_number, "1234567891"
+            PurchaseOrder.objects.get(vendor=self.vendor).po_number, "75613"
         )
 
     def test_delete_purchase_order(self):

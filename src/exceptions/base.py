@@ -22,5 +22,5 @@ class HttpException(APIException):
         self.response()
 
     def response(self):
-        response_data = {"error": str(self.detail)}
+        response_data = {"detail": str(self.detail)}
         return Response(response_data, status=self.status_code)
