@@ -114,7 +114,11 @@ You can create a file named `env` local to your system which can be deteceted by
 
 4. Run with Docker
 
-docker copose has been setup to use alpine image `sqlite3` databse with consistent volume
+dockerfile and docker-compose has been setup to use alpine image `sqlite3` databse with consistent volume, it servers as an instant start up via docker daemon.
+It will:
+- migrate database schema
+- create super user
+- start the server
 
 ```
 docker-compose build && docker compose up
