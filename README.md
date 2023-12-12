@@ -166,23 +166,23 @@ docker-compose build && docker compose up
 
 ### Vendor
 
-* GET /api/vendors/ - List all vendors
-* POST /api/vendors/ - Create a new vendor
-* GET /api/vendors/{pk}/ - Retrieve a vendor
-* PUT /api/vendors/{pk}/ - Update a vendor
-* DELETE /api/vendors/{pk}/ - Delete a vendor
-* GET /api/vendors/{pk}/performance/ - Rrturns vendors performance records and historical performance of each order issues to that vendor
+* *GET* `/api/vendors/` - List all vendors
+* *POST* `/api/vendors/` - Create a new vendor
+* *GET* `/api/vendors/{pk}/` - Retrieve a vendor
+* *PUT* `/api/vendors/{pk}/` - Update a vendor
+* *DELETE* `/api/vendors/{pk}/` - Delete a vendor
+* *GET* `/api/vendors/{pk}/performance/` - Rrturns vendors performance records and historical performance of each order issues to that vendor
 
 Details of  [Vendor endpoints here](src/docs/vendor/endpoints.md)
 
 ### Purchase Order
 
-* GET /api/purchase_orders/ - List all purchase orders
-* POST /api/purchase_orders/ - Create a new purchase order
-* GET /api/purchase_orders/{pk}/ - Retrieve a purchase order
-* PUT /api/purchase_orders/{pk}/ - Update a purchase order
-* DELETE /api/purchase_orders/{pk}/ - Delete a purchase order
-* POST /api/purchase_orders/{pk}/acknowledge/ -  Update acknowledgment_date and trigger the recalculation of average_response_time.
+* *GET* `/api/purchase_orders/` - List all purchase orders
+* *POST* `/api/purchase_orders/` - Create a new purchase order
+* *GET* `/api/purchase_orders/{pk}/` - Retrieve a purchase order
+* *PUT* `/api/purchase_orders/{pk}/` - Update a purchase order
+* *DELETE* `/api/purchase_orders/{pk}/` - Delete a purchase order
+* *POST* `/api/purchase_orders/{pk}/acknowledge/` -  Update acknowledgment_date and trigger the recalculation of average_response_time.
 
 Details of  [Purchase Order endpoints here](src/docs/order/endpoints.md)
 
