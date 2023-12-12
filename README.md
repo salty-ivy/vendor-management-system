@@ -17,6 +17,7 @@ password: admin
 
 2. **Purchase Order Management:**
    - Create, update, and delete purchase orders.
+   - acknowledge purchase orders
 
 3. **Vendor Performance Metrics:**
    - Calculate vendor performance metrics.
@@ -50,7 +51,7 @@ It is recommended to use a virtual environment to run this project. Follow the s
         venv\Scripts\activate
         ```
 
-3. ** To Deactivate the virtual environment:**
+3. **To Deactivate the virtual environment:**
 
     ```
     deactivate
@@ -59,7 +60,7 @@ It is recommended to use a virtual environment to run this project. Follow the s
 
 `env.example` showcase an example env file
 
-You can create a file named `env` local to your system which can be deteceted by the project to configure your custom database like postgres
+You can create a file named `env` local to your system which can be deteceted by the project to configure your custom database credentials and specifications
 
 
 ### Installing
@@ -82,35 +83,55 @@ You can create a file named `env` local to your system which can be deteceted by
 
 #### Run the server Using the Makefile
 
-    The Makefile in this project provides several targets that can be used to perform common tasks. To use the Makefile, open a terminal or command prompt and navigate to the root directory of your project.
+The Makefile in this project provides several targets that can be used to perform common tasks. To use the Makefile, open a terminal or command prompt and navigate to the root directory of your project.
 
-    - Available Targets
-        - **db**: Perform database migrations
+- Available Targets
+    - **db**: Perform database migrations, `makemigrations`, `migrate`
 
-            ```
-            make db # makemigrations, migrate
-            ```
+        ```
+        make db
+        ```
 
-        - **runserver**: Start the development server.
+    - **runserver**: Start the development server, `runserver`.
 
-            ```
-            make runserver # runserver
-            ```
+        ```
+        make runserver
+        ```
 
-    - Other available commnds
-        - **app**: Create a new Django app.
+- Other available commnds
+    - **app**: Create a new Django app, `startapp`.
 
-            ```
-            make app NAME=<app_name> # startapp
-            ```
+        ```
+        make app NAME=<app_name>
+        ```
 
-        - **superuser**: Create a superuser for the Django admin.
+    - **superuser**: Create a superuser for the Django admin, `createsuperuser` .
 
-            ```
-            make superuser # createsuperuser
-            ```
+        ```
+        make superuser
+        ```
 
-    You can run these commands by executing make followed by the target name in your terminal. For example, to start the development server, you can run `make runserver`.
+    - **urls**: lists all URL path for all regitered and available endpoints, `show_urls` by `django-extensions`
+        ```
+        make urls
+        ```
+
+    - **auto_create_superuser**: A custom management command in vendor app that creates a super user with `username = admin` and `password = admin`
+    ```
+    make auto_create_superuser
+    ```
+
+    - **tests**: Run all available tests
+        ```
+        make tests
+        ```
+
+    - **test-specific <name>**: Run a specific test whose modular path is passed as an argument
+        ```
+        make test-specific NAME=vendor.tests
+        ```
+
+You can run these commands by executing make followed by the target name in your terminal. For example, to start the development server, you can run `make runserver`.
 
 #### Run with Docker
 
@@ -180,24 +201,4 @@ To run a specific test you can provide modular path to that project
 
 ```
 make test-specific NAME=vendor.tests # runs only vendor app's tests
-```
-
-## Other utilities
-
-- To lookup a list of available URLs like routes in rails
-
-```
-make urls
-```
-
-- To automatically create a superuser
-
-```
-make auto_create_superuser
-```
-
-Above will create a super user with:
-```
-username: admin
-password: admin
 ```
