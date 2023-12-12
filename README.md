@@ -64,13 +64,13 @@ You can create a file named `env` local to your system which can be deteceted by
 
 ### Installing
 
-1. Clone the repository
+#### Clone the repository
 
     ```
     git clone https://github.com/salty-ivy/vendor-management-system.git
     ```
 
-2. Install the required packages
+#### Install the required packages
 
     ```
     pip install poetry
@@ -80,7 +80,7 @@ You can create a file named `env` local to your system which can be deteceted by
     poetry install
     ```
 
-3. Run the server Using the Makefile
+#### Run the server Using the Makefile
 
     The Makefile in this project provides several targets that can be used to perform common tasks. To use the Makefile, open a terminal or command prompt and navigate to the root directory of your project.
 
@@ -112,7 +112,7 @@ You can create a file named `env` local to your system which can be deteceted by
 
     You can run these commands by executing make followed by the target name in your terminal. For example, to start the development server, you can run `make runserver`.
 
-4. Run with Docker
+#### Run with Docker
 
 dockerfile and docker-compose has been setup to use alpine image `sqlite3` databse with consistent volume, it servers as an instant start up via docker daemon.
 It will:
@@ -124,7 +124,7 @@ It will:
 docker-compose build && docker compose up
 ```
 
-5. Open the browser and go to http://localhost:8000
+#### Open the browser and go to http://localhost:8000
 
 ## Built With
 
