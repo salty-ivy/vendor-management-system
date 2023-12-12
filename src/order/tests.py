@@ -49,8 +49,8 @@ class PurchaseOrderTests(APITestCase):
 
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(PurchaseOrder.objects.count(), 2)
-        self.assertIn(
-            PurchaseOrder.objects.filter(vendor=self.vendor).last().po_number,
+        self.assertEqual(
+            PurchaseOrder.objects.filter(vendor=self.vendor)[1].po_number,
             "75613",
         )
 
