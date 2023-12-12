@@ -2,7 +2,7 @@
 
 The Vendor Management System is a web application developed using Django and Django REST Framework. It is designed to handle vendor profiles, track purchase orders, and calculate vendor performance metrics. This documentation provides a comprehensive guide for both technical and non-technical users on how to use and navigate the system.
 
-*Login Credentials:*
+*Login Credentials:* ( If using `docker` or ran `auto_create_superuse` management command )
 
 ```
 username: admin
