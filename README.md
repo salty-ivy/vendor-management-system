@@ -67,19 +67,19 @@ You can create a file named `env` local to your system which can be deteceted by
 
 #### Clone the repository
 
-    ```
-    git clone https://github.com/salty-ivy/vendor-management-system.git
-    ```
+```
+git clone https://github.com/salty-ivy/vendor-management-system.git
+```
 
 #### Install the required packages
 
-    ```
-    pip install poetry
-    ```
+```
+pip install poetry
+```
 
-    ```
-    poetry install
-    ```
+```
+poetry install
+```
 
 #### Run the server Using the Makefile
 
