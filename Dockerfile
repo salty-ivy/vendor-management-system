@@ -10,9 +10,9 @@ WORKDIR /code
 
 RUN pip install --upgrade pip
 
-COPY requirements.txt /code/
+COPY docker-requirements.txt /code/
 
-RUN pip install -r requirements.txt
+RUN pip install -r docker-requirements.txt
 
 COPY . /code/
 

@@ -131,6 +131,11 @@ docker-compose build && docker compose up
 * [Django](https://www.djangoproject.com/) - The web framework used
 * [Django REST Framework](http://www.django-rest-framework.org/) - The REST API framework used
 
+### Additional third party dependency
+
+* [djnagorestframework-simplejwt](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/) - For token based authentications
+* [django-extensions](https://django-extensions.readthedocs.io/en/latest/) - For shell based visualisation of available URLs
+
 ## API Endpoints
 
 ### Login/Token
