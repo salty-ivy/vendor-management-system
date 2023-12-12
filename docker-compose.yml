@@ -8,7 +8,7 @@ services:
       context: .
       cache_from:
         - "django:latest"
-    command: python src/manage.py runserver 0.0.0.0:8000
+    command: bash -c "python src/manage.py migrate && python src/manage.py auto_create_superuser && python src/manage.py runserver 0.0.0.0:8000"
     ports:
       - 8000:8000
     env_file:
