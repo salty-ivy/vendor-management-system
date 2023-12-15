@@ -18,9 +18,6 @@ class HttpException(APIException):
         if code is not None:
             self.status_code = code
 
-        # Call the response method to generate the response
-        self.response()
-
-    def response(self):
+    def error_response(self):
         response_data = {"detail": str(self.detail)}
         return Response(response_data, status=self.status_code)

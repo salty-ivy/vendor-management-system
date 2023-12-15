@@ -6,6 +6,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 
+from exceptions.base import HttpException
 from order.models import PurchaseOrder
 from order.serializers import (
     PurchaseOrderCreateUpdateSerializer,
@@ -30,7 +31,10 @@ class PurchaseOrderViewset(BaseAutoViewset):
     def create(self, request, *args, **kwargs):
         serializer = self.create_update_serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
+        operation = self.perform_create(serializer)
+        if isinstance(operation, Exception):
+            exception = HttpException(detail=operation)
+            return exception.error_response()
         headers = self.get_success_headers(serializer.data)
         return Response(
             serializer.data, status=status.HTTP_201_CREATED, headers=headers
